@@ -18,6 +18,12 @@ $shadow-dark: 3px 3px 3px rgb(0,0,0,0.8);
     box-sizing: border-box;
 }
 
+html, body{
+    margin:0;
+    background: $mustard;
+    scroll-behavior: smooth;
+}
+
 /* SCROLLBAR */
 ::-webkit-scrollbar {
     width: 8px;
