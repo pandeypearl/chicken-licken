@@ -24,70 +24,80 @@ const Carousel = () => {
         {
             title: 'JUST HOTWINGS',
             subtitle: 'WHEN THE CRAVING’S GOT YOU',
-            imgSrc: {hotwingsImg},
+            imgSrc: hotwingsImg,
             menuId: 'hotWingsMenu',
-            invisible: 'wings'
+            invisible: 'wings',
+            dotImg: '../../assets/menu-groups/hotwings.png',
         },
         {
             title: 'SOULICIOUS SPECIALS',
             subtitle: 'WHEN YOU NEED SOME SOUL FOOD®',
-            imgSrc: {specialsImg},
+            imgSrc: specialsImg,
             menuId: 'specialsMenu',
-            invisible: 'specials'
+            invisible: 'specials',
+            dotImg: '',
         },
         {
             title: 'EASY BUCKS',
             subtitle: 'WHEN IT’S ALMOST MAHALA',
-            imgSrc: {easyBucksImg},
+            imgSrc: easyBucksImg,
             menuId: 'easyMenu',
-            invisible: 'easy'
+            invisible: 'easy',
+            dotImg: '',
         },
         {
             title: 'CHICKEN BURGERS',
             subtitle: 'WHEN YOU JUST HAVE TO',
-            imgSrc: {burgerImg},
+            imgSrc: burgerImg,
             menuId: 'burgersMenu',
-            invisible: 'burgers'
+            invisible: 'burgers',
+            dotImg: '../../assests/menu-groups/hotwings.png',
         },
     ];
 
     return (
-        <div className='wrapper'>
+        <div>
             <ul className='dot-wrapper'>
-                {slides.map((_, index) => (
+                {slides.map((slide, index) => (
                     <li
                         key={index}
                         className={`dot ${index === currentIndex ? 'active' : ''}`}
                         onClick={() => handleDotClick(index)}>
-                        <img src={`../../assests/menu-groups/${index}.png`} alt={`Dot ${index}`} />
+                        <img src={slide.Dotimg} alt={`Dot ${index}`} />
                     </li>
                 ))}
             </ul>
 
-            <div className='slide-intro'>
-                {slides.map((slide, index) => (
-                    <div
-                        key={index}
-                        className={`slide fade ${index === currentIndex ? 'visible': ''}`}
-                    >
-                        <div className='slide-intro'>
-                            <div className='heading'>
-                                <h1>{slide.title}</h1>
-                                <h2>{slide.subtitle}</h2>
-                                <button>{`${slide.title.toLowerCase()} menu`}</button>
-                            </div>
-                            <div className='img-outer'>
-                                <div className='img-inner'>
-                                    <img src={slide.imgSrc} alt={slide.title} />
+            <div className='wrapper'>
+            
+                <div className='slide-intro'>
+                    {slides.map((slide, index) => (
+                        <div
+                            key={index}
+                            className={`slide fade ${index === currentIndex ? 'visible': ''}`}
+                        >
+                            <div className='slide-intro'>
+                                <div className='heading'>
+                                    <h1>{slide.title}</h1>
+                                    <h2>{slide.subtitle}</h2>
+                                    <button>{`${slide.title.toLowerCase()} menu`}</button>
                                 </div>
+                                <div className='img-outer'>
+                                    <div className='img-inner'>
+                                        <img src={slide.imgSrc} alt={slide.title} />
+                                    </div>
+                                </div>
+                                <h1 className='invisible-heading'>{slide.invisible.toLowerCase()}</h1>
                             </div>
-                            <h1 className='invisible-heading'>{slide.invisible.toLowerCase()}</h1>
+                            <div className='menu-items' id={slide.menuId}></div>
                         </div>
-                        <div className='menu-items' id={slide.menuId}></div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
+
         </div>
+        
+        
     );
 };
 
