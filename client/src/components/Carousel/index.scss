@@ -186,7 +186,7 @@ $shadow-dark: 3px 3px 3px rgb(0,0,0,0.4);
 .menu-item-link{
     width: 200px;
     height: 150px;
-    color: var(--mustard);
+    color: $mustard-color;
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: contain;
@@ -195,9 +195,10 @@ $shadow-dark: 3px 3px 3px rgb(0,0,0,0.4);
 
 .menu-item-link h4{
     font-weight: 100;
+    color: $corn-color;
 }
 
-.menu-item-link i{
+.menu-item-link .menu-icon{
     position: absolute;
     right: 10px;
     bottom: 10px;
