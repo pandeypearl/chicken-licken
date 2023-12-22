@@ -1,3 +1,11 @@
+$black-color: #000100; 
+$orange-color: #FCA311;
+$mustard-color: #FFDC5E;
+$corn-color: #FFF275;
+$tart-color: #FF3C38;
+$shadow-light: 3px 3px 3px rgb(0,0,0,0.4);
+$shadow-dark: 3px 3px 3px rgb(0,0,0,0.4);
+
 * {
     box-sizing: border-box;
     font-family: 'Familjen Grotesk', sans-serif;
@@ -18,9 +26,12 @@
     height: 50px;
     border-radius: 50px;
     margin-left: 20px;
-    box-shadow: var(--shadow-1);
-    background-color: var(--black);
+    box-shadow: $shadow-light;
+    background-color: $black-color;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .dot-wrapper .dot img{
@@ -30,7 +41,7 @@
 
 
 .active, .dot-wrapper > .dot:hover{
-    background-color: var(--mustard)!important;
+    background-color: $orange-color!important;
 }
 
 .wrapper{

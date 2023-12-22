@@ -3,6 +3,10 @@ import hotwingsImg from '../../assets/intro-img/just-hotwings-6.png';
 import specialsImg from '../../assets/intro-img/specials.png';
 import easyBucksImg from '../../assets/intro-img/easy.png';
 import burgerImg from '../../assets/intro-img/burger.png';
+import hotwingDot from '../../assets/menu-groups/hotwings.png';
+import specialDot from '../../assets/menu-groups/specials.png';
+import easyDot from '../../assets/menu-groups/easy-menu.png';
+import burgerDot from '../../assets/menu-groups/burgers.png';
 import './index.scss';
 
 const Carousel = () => {
@@ -27,7 +31,7 @@ const Carousel = () => {
             imgSrc: hotwingsImg,
             menuId: 'hotWingsMenu',
             invisible: 'wings',
-            dotImg: '../../assets/menu-groups/hotwings.png',
+            dotImg: hotwingDot,
         },
         {
             title: 'SOULICIOUS SPECIALS',
@@ -35,7 +39,7 @@ const Carousel = () => {
             imgSrc: specialsImg,
             menuId: 'specialsMenu',
             invisible: 'specials',
-            dotImg: '',
+            dotImg: specialDot,
         },
         {
             title: 'EASY BUCKS',
@@ -43,7 +47,7 @@ const Carousel = () => {
             imgSrc: easyBucksImg,
             menuId: 'easyMenu',
             invisible: 'easy',
-            dotImg: '',
+            dotImg: easyDot,
         },
         {
             title: 'CHICKEN BURGERS',
@@ -51,7 +55,7 @@ const Carousel = () => {
             imgSrc: burgerImg,
             menuId: 'burgersMenu',
             invisible: 'burgers',
-            dotImg: '../../assests/menu-groups/hotwings.png',
+            dotImg: burgerDot,
         },
     ];
 
@@ -63,13 +67,12 @@ const Carousel = () => {
                         key={index}
                         className={`dot ${index === currentIndex ? 'active' : ''}`}
                         onClick={() => handleDotClick(index)}>
-                        <img src={slide.Dotimg} alt={`Dot ${index}`} />
+                        <img src={slide.dotImg} alt={`Dot ${index}`} />
                     </li>
                 ))}
             </ul>
 
             <div className='wrapper'>
-            
                 <div className='slide-intro'>
                     {slides.map((slide, index) => (
                         <div
