@@ -21,7 +21,7 @@ const Carousel = () => {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
         }, 5000)
 
-        return () => clearInterval(interval)
+        return () => clearInterval(interval);
     }, []);
 
     const slides = [
@@ -73,7 +73,7 @@ const Carousel = () => {
             </ul>
 
             <div className='wrapper'>
-                <div className='slide-intro'>
+                <div className='slide-container'>
                     {slides.map((slide, index) => (
                         <div
                             key={index}

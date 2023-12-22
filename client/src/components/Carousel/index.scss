@@ -18,150 +18,162 @@ $shadow-dark: 3px 3px 3px rgb(0,0,0,0.4);
     padding-left: 0;
     z-index: 2;
     margin: 10% 0;
-}
 
-.dot-wrapper .dot{
-    margin: 20px 0;
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    margin-left: 20px;
-    box-shadow: $shadow-light;
-    background-color: $black-color;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    .dot{
+        margin: 20px 0;
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        margin-left: 20px;
+        box-shadow: $shadow-light;
+        background-color: $black-color;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-.dot-wrapper .dot img{
-    width: 60px;
-    height: auto;
+        img{
+            width: 60px;
+            height: auto;
+        }
+    }
 }
-
 
 .active, .dot-wrapper > .dot:hover{
     background-color: $orange-color!important;
 }
 
 .wrapper{
-    background-color: var(--corn);
+    background-color: $corn-color;
     min-height: 700px;
     margin: 0 5%;
     margin-bottom: 2%;
     border-radius: 32px;
     border: 3px solid rgb(255,255,255,0.4);
     position: relative;
-}
 
-.slide{
-    display: none;
-    padding: 50px;
-    border-radius: 16px;
+    .slide-container{
+        .slide{
+            display: none;
+            padding: 50px;
+            border-radius: 16px;
+
+            &.visible{
+                display: block;
+            }
+
+            .slide-intro{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative; 
+                
+                .heading{
+                    z-index: 2;
+                    max-width: 500px;
+
+                    button{
+                        background-color: $black-color;
+                        border-radius: 12px;
+                        border: none;
+                        display: block;
+                        width: 300px;
+                        color: $corn-color;
+                        padding: 12px;
+                        margin: 10px 0;
+                        box-shadow: $shadow-light;
+                        cursor: pointer;
+                        font-weight: 900;
+
+                        &:hover{
+                            background-color: $mustard-color;
+                            color: $orange-color;
+                        }
+                    }
+                }
+
+                div h1{
+                    font-size: 5em;
+                    color: $orange-color;
+                    margin: 0;
+                    padding:0;
+                    font-weight: 900;
+
+                    &:nth-child(2){
+                        margin-top: -30px;
+                    
+                    }
+                }
+
+                div h2{
+                    font-weight: 100;
+                    margin: 0;
+                    font-style: italic;
+                    color: $orange-color;
+                    /*text-shadow: -2px 2px 2px  rgb(0,0,0,0.2);*/
+                }
+
+                .img-outer{
+                    width: 400px;
+                    height: 400px;
+                    background-color: $mustard-color;
+                    border-radius: 50%;
+                    margin-left: -80px;
+
+                    .img-inner{
+                        border-radius: 50%;
+                        width: 300px;
+                        height: 300px;
+                        background-color: $corn-color;
+                        margin: 12% auto;
+                        position: relative;
+
+                        img {
+                            margin-left: -80px;
+                            margin-top: -50px;
+                            position: absolute;
+                        }
+                    }
+                }
+
+                .invisible-heading{
+                    position: absolute;
+                    bottom: -200px;
+                    right:0;
+                    font-size: 8em;
+                    color: $corn-color;
+                    text-shadow: -2px 2px 2px rgb(0,0,0,0.2);
+                    z-index: 2;
+                }
+            }
+        }
+
+        /* SLIDE ANIMATION */
+        .fade {
+            animation-name: slide;
+            animation-duration: 2s;
+            transition: ease-in;
+        }
+
+        .fade.visible{
+            display: block;
+        }
+        
+        @keyframes slide {
+            from {margin-right: -500px;
+            opacity: 0;}
+            to {margin-right: 0; opacity: 1;}
+        }
+    }
+}
     
-}
 
-.slide-intro{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-.heading{
-    z-index: 2;
-    max-width: 500px;
-}
-.slide-intro div h1{
-    font-size: 5em;
-    color: var(--orange-web);
-    margin: 0;
-    padding:0;
-    font-weight: 900;
-}
-
-.slide-intro div h1:nth-child(2){
-    margin-top: -30px;
-
-}
-    
-.slide-intro div h2{
-    font-weight: 100;
-    margin: 0;
-    font-style: italic;
-    color: var(--orange-web);
-    /*text-shadow: -2px 2px 2px  rgb(0,0,0,0.2);*/
-}
-
-.heading button{
-    background-color: var(--black);
-    border-radius: 12px;
-    border: none;
-    display: block;
-    width: 300px;
-    color: var(--corn);
-    padding: 12px;
-    margin: 10px 0;
-    box-shadow: var(--shadow-1);
-    cursor: pointer;
-    font-weight: 900;
-}
-
-.heading button:hover{
-    background-color: var(--mustard);
-    color: var(--black);
-}
-
-.img-outer{
-    width: 400px;
-    height: 400px;
-    background-color: var(--mustard);
-    border-radius: 50%;
-    margin-left: -80px;
-}
-
-.img-inner{
-    border-radius: 50%;
-    width: 300px;
-    height: 300px;
-    background-color: var(--corn);
-    margin: 12% auto;
-    position: relative;
-}
-
-.img-inner img {
-    margin-left: -80px;
-    margin-top: -50px;
-    position: absolute;
-}
-
-/* SLIDE ANIMATION */
-.fade {
-    animation-name: slide;
-    animation-duration: 2s;
-    transition: ease-in;
-  }
-  
-  @keyframes slide {
-    from {margin-right: -500px;
-    opacity: 0;}
-    to {margin-right: 0; opacity: 1;}
-  }
-
-.invisible-heading{
-    position: absolute;
-    bottom: -200px;
-    right:0;
-    font-size: 8em;
-    color: var(--corn);
-    text-shadow: -2px 2px 2px  rgb(0,0,0,0.2);
-    z-index: 2;
-}
 
 .menu-items{
     display: flex;
     justify-content: center;
     gap: 10px;
-    background-color: var(--black);
+    background-color: $black-color;
     position: absolute;
     bottom: 0;
     right:0;
