@@ -45,7 +45,7 @@ $shadow-dark: 3px 3px 3px rgb(0,0,0,0.4);
 
 .wrapper{
     background-color: $corn-color;
-    min-height: 700px;
+    min-height: 750px;
     margin: 0 5%;
     margin-bottom: 2%;
     border-radius: 32px;
@@ -138,7 +138,7 @@ $shadow-dark: 3px 3px 3px rgb(0,0,0,0.4);
 
                 .invisible-heading{
                     position: absolute;
-                    bottom: -200px;
+                    bottom: -220px;
                     right:0;
                     font-size: 8em;
                     color: $corn-color;
@@ -157,7 +157,7 @@ $shadow-dark: 3px 3px 3px rgb(0,0,0,0.4);
                 right:0;
                 left: 0;
                 border-radius: 0 0 32px 32px;
-                padding: 10px;
+                padding: 20px;
 
                 .menu-item-link{
                     width: 200px;
