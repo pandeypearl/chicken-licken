@@ -15,7 +15,7 @@ const TopNav = () => {
             </div>
 
             <div>
-                <NavLink exact='true' activeClassName='active' to='/'>menu</NavLink>
+                <NavLink exact='true' activeClassName='active' to='/menu'>menu</NavLink>
                 <NavLink exact='true' activeClassName='active' to='/'>store finder</NavLink>
                 <NavLink exact='true' activeClassName='active' to='/'>delivery</NavLink>
                 <NavLink exact='true' activeClassName='active' to='/'>search</NavLink>
