@@ -1,6 +1,7 @@
 import './index.scss';
+import menuData from '../../data/menuData';
 
-const MenuNav = () => {
+const MenuNav = ({onSelectMenu}) => {
 
     const menuBtns = [
         {
@@ -101,8 +102,12 @@ const MenuNav = () => {
     ]
     return (
         <div className='menu-nav-container'>
-            {menuBtns.map((btn, id) => (
-                <div key={id} className='menu-btn'>
+            {menuBtns.map((btn, index) => (
+                <div 
+                    key={index} 
+                    className='menu-btn' 
+                    onClick={() => onSelectMenu(menuData[index].id)}
+                >
                     <img src={btn.img} alt={btn.title}></img>
                     <span>{btn.title}</span>
                 </div>

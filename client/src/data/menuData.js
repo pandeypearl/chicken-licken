@@ -95,7 +95,7 @@ const menuData = [
                 id: 'soul-specials-010',
                 item: 'Hotwings® Party 16',
                 price: '132.00',
-                image: require('./images/souliciousSpecials/HotwingsPart16.jpg'),
+                image: require('./images/souliciousSpecials/HotwingsParty16.jpg'),
             },
             {
                 id: 'soul-specials-011',
@@ -139,13 +139,13 @@ const menuData = [
                 id: 'chicken-meals-003',
                 item: 'Hotwings® Meal 8',
                 price: '86.00',
-                image: require('./images/chickenMeals/HotwingsMeal8.png'),
+                image: require('./images/chickenMeals/hotwingsMeal8.png'),
             },
             {
                 id: 'chicken-meals-004',
                 item: 'Hotwings® Meal 8 Max',
                 price: '90.00',
-                image: require('./images/chickenMeals/HowtingsMeal8Max.png'),
+                image: require('./images/chickenMeals/HotwingsMeal8Max.png'),
             },
         ],
     },
@@ -177,7 +177,7 @@ const menuData = [
                 id: 'soulsister-004',
                 item: 'SoulSister® 2 Max',
                 price: '65.00',
-                image: require('./images/soulsisterSpecials/SoulSister2Max.png'),
+                image: require('./images/soulsisterSpecials/Soulsister2Max.png'),
             },
             {
                 id: 'soulsister-005',
@@ -537,7 +537,7 @@ const menuData = [
         id: 'menu-013',
         name: 'SUPER SLIDER® SPECIALS',
         phrase: 'WHEN YOU CAN\'T LET IT SLIDE',
-        cover_img: require('./images/cover/'),
+        cover_img: require('./images/cover/SuperSlidersSpecials.png'),
         items: [
             {
                 id: 'super-slider-specials-001',
@@ -563,7 +563,7 @@ const menuData = [
                 id: 'extra-licken-001',
                 item: '2 x SoulFire® Sachets',
                 price: '6.00',
-                image: require('./images/extraLicken/SoulfireSauceSachets.jpg'),
+                image: require('./images/extraLicken/SoulfireSauceSachets2.jpg'),
             },
             {
                 id: 'extra-licken-002',
@@ -766,7 +766,7 @@ const menuData = [
                 id: 'secret-menu-001',
                 item: 'Cheesewich™',
                 price: '32.00',
-                image: require('./images/secretMenu/Cheesewich.png'),
+                image: require('./images/secretMenu/Cheeswich.png'),
             },
             {
                 id: 'secret-menu-002',
@@ -778,7 +778,7 @@ const menuData = [
                 id: 'secret-menu-003',
                 item: 'S’Dumo® Burger Top Deluxe',
                 price: '45.00',
-                image: require('./images/secretMenu/SdumoBurder.jpg'),
+                image: require('./images/secretMenu/SdumoBurger.jpg'),
             },
             {
                 id: 'secret-menu-004',
@@ -790,7 +790,7 @@ const menuData = [
                 id: 'secret-menu-005',
                 item: 'Chicwich® Top Deluxe',
                 price: '65.00',
-                image: require('./images/secretMenu/ChickwhichTopDeluxe.png'),
+                image: require('./images/secretMenu/ChicwichTopDeluxe.png'),
             },
         ],
     },
