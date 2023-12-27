@@ -1,0 +1,16 @@
+@import '../../styles/colours.scss';
+
+.page-wrapper{
+    display: flex;
+    margin: 0 100px;
+    background: $black;
+    border-radius: 30px;
+    padding: 30px;
+    
+    .menu-wrapper{
+        padding: 30px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        height: 700px;
+    }
+}

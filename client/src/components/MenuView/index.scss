@@ -1,0 +1,89 @@
+@import '../../styles/colours.scss';
+@import '../../styles/shadows.scss';
+
+.menu-container{
+    background: $black;
+    width: 800px;
+    padding: 20px;
+
+    .menu-intro{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        height: 300px;
+        margin-bottom: 50px;
+
+        div{
+            text-align: center;
+            h2{
+               color: $orange-web;
+               font-weight: 900;
+               font-size: 2.5rem;
+               margin:0;
+            }
+            p{
+                color: $corn;
+                font-size: 1.2rem;
+                
+            }
+        }
+        img{
+            width: auto;
+            height: 300px;
+            object-fit: cover;
+        }
+    }
+
+    .menu-items{
+        h3{
+            color: $orange-web;
+            font-weight: 900;
+        }
+
+        ul{
+            margin:0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+
+            li{
+                width: 220px;
+                height: 250px;
+                display: flex;
+                flex-direction: column;
+                align-items:center;
+                justify-content: space-around;
+                border-radius: 10px;
+                box-shadow: $white-shadow-glow;
+                position: relative;
+
+                div{
+                    .item-icon{
+                        color: $orange-web;
+                        font-size: 1.5rem;
+                        position: absolute;
+                        right: 20px;
+                        top: 20px;
+                        cursor: pointer;
+
+                        &:hover{
+                            color: darken($orange-web, 20%);
+                        }
+                    }
+                }
+
+                div img{
+                    width: 200px;
+                    height: auto;
+                    margin:0 auto;
+                }
+
+                div p{
+                    color: $corn;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

@@ -18,12 +18,12 @@ const MenuPage = () => {
     
 
     return (
-        <>
+        <div className='page-wrapper'>
             <MenuNav onSelectMenu={handleSelectMenu} />
             <div className='menu-wrapper'>
                 {selectedMenu && <MenuView menu={selectedMenu} />}
             </div>
-        </>
+        </div>
     )
 }
 
