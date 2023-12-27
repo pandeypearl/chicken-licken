@@ -22,7 +22,7 @@ const TopNav = () => {
             </div>
 
             <div>
-                <NavLink exact='true' activeClassName='active' to='/'><FontAwesomeIcon icon={faBagShopping} color='#FF8C00' /></NavLink>
+                <NavLink exact='true' activeClassName='active' to='/cart'><FontAwesomeIcon icon={faBagShopping} color='#FF8C00' /></NavLink>
             </div>
         </nav>
     )
