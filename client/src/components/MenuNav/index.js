@@ -1,7 +1,7 @@
 import './index.scss';
 import menuData from '../../data/menuData';
 
-const MenuNav = ({onSelectMenu}) => {
+const MenuNav = ({onSelectMenu, selectedMenuId}) => {
 
     const menuBtns = [
         {
@@ -101,18 +101,21 @@ const MenuNav = ({onSelectMenu}) => {
         },
     ]
     return (
-        <div className='menu-nav-container'>
+        <div className='menu-nav-wrapper'>
+            <div className='menu-nav-container'>
             {menuBtns.map((btn, index) => (
                 <div 
                     key={index} 
-                    className='menu-btn' 
+                    className={`menu-btn ${menuData[index].id === selectedMenuId ? 'active-btn' : ''}`} 
                     onClick={() => onSelectMenu(menuData[index].id)}
                 >
                     <img src={btn.img} alt={btn.title}></img>
                     <span>{btn.title}</span>
                 </div>
             ))}
+            </div>
         </div>
+        
     );
 };
 

@@ -19,7 +19,7 @@ const MenuPage = () => {
 
     return (
         <div className='page-wrapper'>
-            <MenuNav onSelectMenu={handleSelectMenu} />
+            <MenuNav onSelectMenu={handleSelectMenu} selectedMenuId={selectedMenu ? selectedMenu.id : null} />
             <div className='menu-wrapper'>
                 {selectedMenu && <MenuView menu={selectedMenu} />}
             </div>

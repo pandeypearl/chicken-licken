@@ -5,49 +5,71 @@
     box-sizing: border-box;
 }
 
-.menu-nav-container{
-    width: 280px;
-    height: 80vh;
-    overflow-y: scroll;
-    background: $orange-web;
-    border-radius: 20px;
-    padding: 50px 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    background-color: $black;
-
-    .menu-btn{
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        box-shadow: $shadow-dark;
+.menu-nav-wrapper{
+    .menu-nav-container{
+        width: 280px;
+        height: 700px;
+        overflow-y: scroll;
+        background: $orange-web;
+        border-radius: 20px;
+        padding: 50px 20px;
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        border: 2px solid $orange-web;
-        cursor: pointer;
-
-        &:hover{
-            background-color: $black;
-        }
-        img{
+        flex-wrap: wrap;
+        gap: 30px;
+        background-color: $black-light;
+        box-shadow: $white-shadow;
+    
+        .menu-btn{
             width: 100px;
-            height: auto;
-            margin-top: -10px;
-            z-index: 2;
+            height: 100px;
+            border-radius: 50%;
+            box-shadow: $shadow-dark;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px solid $orange-web;
+            cursor: pointer;
+    
+            &:hover{
+                background-color: $orange-web;
+                border: 5px solid $orange-web;
+                span{
+                    color: $tart-orange;
+                    background: transparent;
+                    margin-top: -40px;
+                    padding:0;
+                }
+            }
+            img{
+                width: 100px;
+                height: auto;
+                margin-top: -10px;
+                z-index: 2;
+            }
+            span{
+                display: block;
+                width: 60px;
+                font-size: 0.5rem;
+                text-align: center;
+                font-weight: 900;
+                color: $mustard;
+                background: $black;
+                padding: 10px 5px;
+                
+            }
         }
-        span{
-            display: block;
-            width: 60px;
-            font-size: 0.5rem;
-            text-align: center;
-            font-weight: 900;
-            color: $mustard;
-            background: $black;
-            padding: 10px 5px;
-            
+
+        .active-btn{
+            background-color: $orange-web;
+            border: 5px solid $orange-web;
+            span{
+                color: $tart-orange;
+                background: transparent;
+                margin-top: -40px;
+                padding:0;
+            }
         }
     }
 }
+
