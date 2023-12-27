@@ -1,8 +1,26 @@
 import './index.scss';
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
-const MenuView = ({menu}) => {
+const MenuView = ({menu, onAddToCart}) => {
+    const [quantity, setQuantity] = useState(1);
+
+    const handleQuantityChange = (event) => {
+        const newQuantity = parseInt(event.target.value, 10);
+        setQuantity(newQuantity);
+    }
+    
+    const handleAddToCart = (item) => {
+        onAddToCart({
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            quantity: quantity,
+        });
+        setQuantity(1);
+    };
+
     return (
         <div className='menu-container'>
             <div className='menu-intro'>
@@ -18,8 +36,18 @@ const MenuView = ({menu}) => {
                 <ul>
                     {menu.items.map((item) => (
                         <li key={item.id}>
-                            <div>
-                                <FontAwesomeIcon icon={faCirclePlus} className='item-icon'/>
+                            <div className='cart-add'>
+                                <input 
+                                    type='number'
+                                    value={quantity}
+                                    onChange={handleQuantityChange}
+                                    min='1'
+                                />
+                                <FontAwesomeIcon
+                                    icon={faCirclePlus} 
+                                    className='item-icon'
+                                    onClick={() => handleAddToCart(item)}
+                                />
                             </div>
                             <div>
                                 <img src={item.image} alt={item.item}/>
