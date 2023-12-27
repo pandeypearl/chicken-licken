@@ -61,7 +61,7 @@
 
                 div{
                     .item-icon{
-                        color: $orange-web;
+                        color: $tart-orange;
                         font-size: 1.5rem;
                         position: absolute;
                         right: 20px;
@@ -69,7 +69,7 @@
                         cursor: pointer;
 
                         &:hover{
-                            color: darken($orange-web, 20%);
+                            color: darken($tart-orange, 20%);
                         }
                     }
                 }
