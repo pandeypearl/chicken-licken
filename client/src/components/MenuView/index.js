@@ -11,7 +11,8 @@ const MenuView = ({menu, onAddToCart}) => {
         setQuantity(newQuantity);
     }
     
-    const handleAddToCart = (item) => {
+    const handleAddToCartClick = (item) => {
+        console.log('Adding item to cart:', item);
         onAddToCart({
             id: item.id,
             name: item.name,
@@ -46,7 +47,7 @@ const MenuView = ({menu, onAddToCart}) => {
                                 <FontAwesomeIcon
                                     icon={faCirclePlus} 
                                     className='item-icon'
-                                    onClick={() => handleAddToCart(item)}
+                                    onClick={() => handleAddToCartClick(item)}
                                 />
                             </div>
                             <div>

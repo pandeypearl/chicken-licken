@@ -32,15 +32,12 @@
             cursor: pointer;
     
             &:hover{
-                background-color: $orange-web;
-                border: 5px solid $orange-web;
+                border: 2px solid $tart-orange;
                 span{
                     color: $tart-orange;
-                    background: transparent;
-                    margin-top: -40px;
-                    padding:0;
                 }
             }
+            
             img{
                 width: 100px;
                 height: auto;
@@ -61,13 +58,9 @@
         }
 
         .active-btn{
-            background-color: $orange-web;
-            border: 5px solid $orange-web;
+            border: 2px solid $tart-orange;
             span{
                 color: $tart-orange;
-                background: transparent;
-                margin-top: -40px;
-                padding:0;
             }
         }
     }
