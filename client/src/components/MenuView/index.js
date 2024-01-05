@@ -1,10 +1,12 @@
 import './index.scss';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import { CartContext} from '../../pages/Cart/CartContext';
 
-const MenuView = ({menu, onAddToCart}) => {
+const MenuView = ({ menu }) => {
     const [quantity, setQuantity] = useState(1);
+    const { setCartItems } = useContext(CartContext);
 
     const handleQuantityChange = (event) => {
         const newQuantity = parseInt(event.target.value, 10);
@@ -13,12 +15,15 @@ const MenuView = ({menu, onAddToCart}) => {
     
     const handleAddToCartClick = (item) => {
         console.log('Adding item to cart:', item);
-        onAddToCart({
-            id: item.id,
-            name: item.name,
-            price: item.price,
-            quantity: quantity,
-        });
+        setCartItems((prevCartItems) => [
+            ...prevCartItems, {
+                id: item.id,
+                name: item.item,
+                price: item.price,
+                image: item.image,
+                quantity: quantity,
+            },
+        ]);
         setQuantity(1);
     };
 
@@ -62,7 +67,7 @@ const MenuView = ({menu, onAddToCart}) => {
                 </ul>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default MenuView;

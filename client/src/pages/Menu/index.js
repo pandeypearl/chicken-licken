@@ -1,18 +1,23 @@
 import './index.scss';
 import MenuNav from '../../components/MenuNav';
 import MenuView from '../../components/MenuView';
-import CartPage from '../../pages/Cart';
-import { CartContext } from '../../pages/Cart/CartContext';
+// import CartPage from '../../pages/Cart';
+import { useCart } from '../../pages/Cart/CartContext';
 import { useState, useEffect } from 'react';
 import MenuData from '../../data/menuData';
 
 
 const MenuPage = () => {
     const [selectedMenu, setSelectedMenu] = useState(null);
-    const [cartItems, setCartItems] = useState([]);
+    const { cartItems, setCartItems } = useCart();
 
     useEffect(() => {
-        setSelectedMenu(MenuData[0]);
+        // setSelectedMenu(MenuData[0]);
+        console.log('MenuData:', MenuData); 
+        const menuWithItems = MenuData.find(menu => menu.items && menu.items.length > 0);
+        console.log('Selected Menu:', menuWithItems);
+
+        setSelectedMenu(menuWithItems || null); 
     }, []);
 
     const handleSelectMenu = (menuId) => {
@@ -30,40 +35,28 @@ const MenuPage = () => {
                 cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + item.quantity} : cartItem
             );
             setCartItems(updatedCart);
-            localStorage.setItem('cartItems', JSON.stringify(updatedCart));
         } else {
             // Adding new item to cart
-            const newCartItems = [...cartItems, item];
-            setCartItems(newCartItems);
-            localStorage.setItem('cartItems', JSON.stringify(newCartItems));
+            const newCartItem = {...item, quantity: 1 };
+            setCartItems([...cartItems, newCartItem]);
         }
-        console.log('Updated cart items:', cartItems);
     };
 
     useEffect(() => {
+        // Update local storage when cartItems change
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
-        console.log('cartItems state:', cartItems);
     }, [cartItems]);
-    
-    
+
+    console.log('selectedMenu:', selectedMenu); // Add this log
 
     return (
-        <CartContext.Consumer>
-            {({ cartItems, setCartItems}) => (
-                <div className='page-wrapper'>
-                    <MenuNav onSelectMenu={handleSelectMenu} selectedMenuId={selectedMenu?.id} />
-                    <div className='menu-wrapper'>
-                        {selectedMenu ? (
-                            <MenuView menu={selectedMenu} onAddToCart={setCartItems} />
-                        ) : (
-                            <CartPage cartItems={cartItems} />  
-                        )}
-                    </div>
-                </div>
-            )}
-        </CartContext.Consumer>
-        
-    )
+        <div className='page-wrapper'>
+            <MenuNav onSelectMenu={handleSelectMenu} selectedMenuId={selectedMenu?.id} />
+            <div className='menu-wrapper'>
+                {selectedMenu &&  <MenuView menu={selectedMenu} onAddToCart={handleAddToCart}/>}
+            </div>
+        </div>
+    );
 }
 
 export default MenuPage;

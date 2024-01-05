@@ -1,4 +1,4 @@
-import { useEffect, useContext } from 'react';
+import { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import './index.scss';
@@ -9,8 +9,7 @@ const CartPage = () => {
 
     // Removing an item from the cart using id
     const handleRemoveItem = (itemId) => {
-        const updatedCart = cartItems.filter((item) => item.id !== itemId);
-        setCartItems(updatedCart);
+        setCartItems((prevCartItems) => prevCartItems.filter((item) => item.id !== itemId));
     };
 
     // Clearing all cart items
@@ -18,32 +17,8 @@ const CartPage = () => {
         setCartItems([]);
     };
 
-    // Retrieving cart items from local storage on component mount
-    // useEffect(() => {
-    //     console.log('Fetching data from local storage');
-    //     const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    //     console.log('Fetched cart items:', storedCartItems);
-    //     setCartItems(storedCartItems);
-    // }, []);
+    const total = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
-    // //Updating local storage whenever the cartItems state changes
-    // useEffect(() => {
-    //     console.log('Updating local storage:', cartItems);
-    //     localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    // }, [cartItems]);
-
-    // console.log('Rendered with cart items:', cartItems);
-
-    // // Removing an item from the cart using id
-    // const handleRemoveItem = (itemId) => {
-    //     const updatedCart = cartItems.filter((item) => item.id !== itemId);
-    //     setCartItems(updatedCart);
-    // };
-
-    // // Clearing all cart items
-    // const handleClearCart = () => {
-    //     setCartItems([]);
-    // };
 
     return (
         <div>
@@ -71,7 +46,7 @@ const CartPage = () => {
             )}
             {cartItems.length > 0 && (
                 <>
-                    <p>Total: R {cartItems.reduce((total, item) => total = item.price * item.quantity, 0)}</p>
+                    <p>Total: R {total}</p>
                     <button onClick={handleClearCart}>Clear Cart</button>
                 </>
             )}
