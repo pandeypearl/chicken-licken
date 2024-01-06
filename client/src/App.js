@@ -4,11 +4,11 @@ import Layout from './components/Layout';
 import Carousel from './components/Carousel';
 import Menu from './pages/Menu';
 import Cart from './pages/Cart';
-import { CartProvider } from './pages/Cart/CartContext';
+import { CartContextProvider } from './pages/Cart/CartContext';
 
 function App() {
   return (
-    <CartProvider>
+    <CartContextProvider>
     <>
       <Routes>
         <Route path='/' element={<Layout />}>
@@ -18,7 +18,7 @@ function App() {
         </Route>
       </Routes>
     </>
-    </CartProvider>
+    </CartContextProvider>
   );
 }
 

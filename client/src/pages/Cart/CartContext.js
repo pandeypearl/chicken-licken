@@ -2,7 +2,7 @@ import React, { createContext, useState } from 'react';
 import { PRODUCTS } from '../../data/products';
 
 // Create a Context
-const CartContext = createContext(null);
+export const CartContext = createContext(null);
 
 const getDefaultCart = () => {
     let cart = {};
