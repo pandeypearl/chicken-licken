@@ -1,7 +1,7 @@
 import './index.scss';
-import menuData from '../../data/menuData';
+import { PRODUCTS } from '../../data/products';
 
-const MenuNav = ({onSelectMenu, selectedMenuId}) => {
+const MenuNav = ({ onSelectMenu, selectedMenuId }) => {
 
     const menuBtns = [
         {
@@ -37,7 +37,7 @@ const MenuNav = ({onSelectMenu, selectedMenuId}) => {
         {
             id: '006',
             img: require('../../assets/menu-groups/burgers.png'),
-            title: 'JUST CHICK\'N BURGERS', 
+            title: 'JUST CHICKEN BURGERS', 
         },
         {
             id: '007',
@@ -87,7 +87,7 @@ const MenuNav = ({onSelectMenu, selectedMenuId}) => {
         {
             id: '017',
             img: require('../../assets/menu-groups/licken-lekker.png'),
-            title: 'LICK\'N LEKKER', 
+            title: 'LICKEN LEKKER', 
         },
         {
             id: '018',
@@ -99,15 +99,16 @@ const MenuNav = ({onSelectMenu, selectedMenuId}) => {
             img: require('../../assets/menu-groups/secret-menu.png'),
             title: 'SECRET MENU', 
         },
-    ]
+    ];
+
     return (
         <div className='menu-nav-wrapper'>
             <div className='menu-nav-container'>
-            {menuBtns.map((btn, index) => (
+            {menuBtns.map((btn) => (
                 <div 
-                    key={index} 
-                    className={`menu-btn ${menuData[index].id === selectedMenuId ? 'active-btn' : ''}`} 
-                    onClick={() => onSelectMenu(menuData[index].id)}
+                    key={btn.id} 
+                    className={`menu-btn ${btn.title === selectedMenuId ? 'active-btn' : ''}`} 
+                    onClick={() => onSelectMenu(btn.title)}
                 >
                     <img src={btn.img} alt={btn.title}></img>
                     <span>{btn.title}</span>

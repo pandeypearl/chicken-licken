@@ -4,16 +4,48 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { CartContext} from '../../pages/Cart/CartContext';
 
-const MenuView = ({ menu }) => {
+const MenuItem = ({ item, onAddToCart }) => {
     const [quantity, setQuantity] = useState(1);
-    const { setCartItems } = useContext(CartContext);
-
     const handleQuantityChange = (event) => {
         const newQuantity = parseInt(event.target.value, 10);
         setQuantity(newQuantity);
-    }
-    
-    const handleAddToCartClick = (item) => {
+    };
+
+    const handleAddToCartClick = () => {
+        onAddToCart(item, quantity);
+        setQuantity(1);
+    };
+
+    return (
+        <li key={item.id}>
+          <div className='cart-add'>
+            <input
+              type='number'
+              value={quantity}
+              onChange={handleQuantityChange}
+              min='1'
+            />
+            <FontAwesomeIcon
+              icon={faCirclePlus}
+              className='item-icon'
+              onClick={handleAddToCartClick}
+            />
+          </div>
+          <div>
+            <img src={item.image} alt={item.item} />
+          </div>
+          <div>
+            <p>{item.item}</p>
+            <p>R {item.price}</p>
+          </div>
+        </li>
+      );
+};
+
+const MenuView = ({ menu }) => {
+    const { setCartItems } = useContext(CartContext);
+
+    const handleAddToCart = (item, quantity) => {
         console.log('Adding item to cart:', item);
         setCartItems((prevCartItems) => [
             ...prevCartItems, {
@@ -24,45 +56,46 @@ const MenuView = ({ menu }) => {
                 quantity: quantity,
             },
         ]);
-        setQuantity(1);
+        // setQuantity(1);
     };
 
     return (
         <div className='menu-container'>
             <div className='menu-intro'>
                 <div>
-                    <h2>{menu.name}</h2>
-                    <p>{menu.phrase}</p>
+                    <h2>{menu.info.name}</h2>
+                    <p>{menu.info.phrase}</p>
                 </div>
-                <img src={menu.cover_img} alt={`${menu.name} Cover`} />
+                <img src={menu.info.cover_img} alt={`${menu.info.name} Cover`} />
             </div>
             
 
             <div className='menu-items'>
                 <ul>
                     {menu.items.map((item) => (
-                        <li key={item.id}>
-                            <div className='cart-add'>
-                                <input 
-                                    type='number'
-                                    value={quantity}
-                                    onChange={handleQuantityChange}
-                                    min='1'
-                                />
-                                <FontAwesomeIcon
-                                    icon={faCirclePlus} 
-                                    className='item-icon'
-                                    onClick={() => handleAddToCartClick(item)}
-                                />
-                            </div>
-                            <div>
-                                <img src={item.image} alt={item.item}/>
-                            </div>
-                            <div>
-                                <p>{item.item}</p>
-                                <p>R {item.price}</p>
-                            </div>
-                        </li>
+                        <MenuItem key={item.id} item={item} onAddToCart={handleAddToCart} />
+                        // <li key={item.id}>
+                        //     <div className='cart-add'>
+                        //         <input 
+                        //             type='number'
+                        //             value={quantity}
+                        //             onChange={handleQuantityChange}
+                        //             min='1'
+                        //         />
+                        //         <FontAwesomeIcon
+                        //             icon={faCirclePlus} 
+                        //             className='item-icon'
+                        //             onClick={() => handleAddToCartClick(item)}
+                        //         />
+                        //     </div>
+                        //     <div>
+                        //         <img src={item.image} alt={item.item}/>
+                        //     </div>
+                        //     <div>
+                        //         <p>{item.item}</p>
+                        //         <p>R {item.price}</p>
+                        //     </div>
+                        // </li>
                     ))}
                 </ul>
             </div>
