@@ -518,7 +518,7 @@ export const PRODUCTS = [
         menu: 'SUPER SLIDER SPECIALS',
     },
     {
-        id: 'super-slider-specials-001',
+        id: 'super-slider-specials-002',
         item: 'Super Slider® Mix 4',
         price: '68.00',
         image: require('./images/superSliderSpecials/SuperSliderMix4.jpg'),
@@ -581,21 +581,21 @@ export const PRODUCTS = [
         menu: 'Chicky Licky',
     },
     {
-        id: 'chicky-licky-001',
+        id: 'chicky-licky-002',
         item: 'Chicky Licky® Munch',
         price: '60.00',
         image: require('./images/chickyLicky/ChickylickyMunch.jpg'),
         menu: 'Chicky Licky',
     },
     {
-        id: 'chicky-licky-001',
+        id: 'chicky-licky-003',
         item: 'SoulBites® Munch',
         price: '60.00',
         image: require('./images/chickyLicky/SoulBitesMunch.jpg'),
         menu: 'Chicky Licky',
     },
     {
-        id: 'chicky-licky-001',
+        id: 'chicky-licky-004',
         item: 'Lil Munch® Meal',
         price: '60.00',
         image: require('./images/chickyLicky/LilMunchMeal.jpg'),
