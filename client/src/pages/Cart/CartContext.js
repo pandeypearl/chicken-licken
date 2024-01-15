@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import { PRODUCTS } from '../../data/products';
 
 // Create a Context
@@ -6,7 +6,8 @@ export const CartContext = createContext(null);
 
 const getDefaultCart = () => {
     let cart = {};
-    for (let i = 1; i < PRODUCTS.length; i++) {
+    const maxId = Math.max(...PRODUCTS.map(item => item.id));
+    for (let i = 1; i <= maxId; i++) {
         cart[i] = 0;
     }
     return cart;
@@ -27,7 +28,9 @@ export const CartContextProvider = (props) => {
     }
 
     const addToCart = (itemId) => {
-        setCartItems((prev) => ({...prev, [itemId]: prev[itemId] + 1 }));
+        console.log('Item ID:', itemId);
+        console.log('Cart Items before addToCart:', cartItems);
+        setCartItems((prev) => ({ ...prev, [itemId]: (prev[itemId] || 0) + 1 }));
     }
 
     const removeFromCart = (itemId) => {
@@ -41,6 +44,10 @@ export const CartContextProvider = (props) => {
     const checkout = () => {
         setCartItems(getDefaultCart());
     }
+
+    useEffect(() => {
+        console.log('Cart Items after addToCart:', cartItems);
+    }, [cartItems]);
 
     const contextValue = {
         cartItems,
