@@ -21,7 +21,9 @@ export const CartContextProvider = (props) => {
         const storedCartItems = localStorage.getItem('cartItems');
         if (storedCartItems) {
             try {
-                setCartItems(JSON.parse(storedCartItems) || getDefaultCart());
+                const parsedCartItems = JSON.parse(storedCartItems);
+                console.log('Stored Cart Items:', parsedCartItems);
+                setCartItems(parsedCartItems || getDefaultCart());
             } catch (error) {
                 console.error('Error parsing stored cart items:', error);
                 setCartItems(getDefaultCart());
@@ -30,7 +32,7 @@ export const CartContextProvider = (props) => {
             setCartItems(getDefaultCart());
         }
     }, []);
-
+    
     // Use useEffect to save cart items to localStorage whenever it changes
     useEffect(() => {
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
@@ -47,10 +49,15 @@ export const CartContextProvider = (props) => {
         return totalAmount;
     }
 
-    const addToCart = (itemId) => {
+    const addToCart = (itemId, quantity = 1) => {
         console.log('Item ID:', itemId);
         console.log('Cart Items before addToCart:', cartItems);
-        setCartItems((prev) => ({ ...prev, [itemId]: (prev[itemId] || 0) + 1 }));
+        setCartItems((prev) => {
+            const newCart = { ...prev, [itemId]: (prev[itemId] || 0) + quantity };
+            console.log('Cart Items after addToCart:', newCart);
+            return newCart;
+        });
+        console.log('Cart Items after addToCart:', cartItems);
     }
 
     const removeFromCart = (itemId) => {
